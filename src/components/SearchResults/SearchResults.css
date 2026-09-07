@@ -1,0 +1,12 @@
+.SearchResults {
+  width: 45%;
+  min-width: 300px;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.SearchResults h2 {
+  color: #0f5132;
+  border-bottom: 2px solid #1db954;
+  padding-bottom: 0.5rem;
+}
