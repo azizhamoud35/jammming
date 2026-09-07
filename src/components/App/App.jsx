@@ -78,6 +78,13 @@ function App() {
     });
   }
 
+  // Feature (Part Two): hide tracks already in the playlist from the results.
+  // Derived state — searchResults stays the single source of truth, so a
+  // track removed from the playlist automatically reappears in the results.
+  const visibleResults = searchResults.filter(
+    (result) => !playlistTracks.some((track) => track.id === result.id)
+  );
+
   return (
     <div>
       <h1>
@@ -86,7 +93,7 @@ function App() {
       <div className="App">
         <SearchBar onSearch={search} />
         <div className="App-playlist">
-          <SearchResults searchResults={searchResults} onAdd={addTrack} />
+          <SearchResults searchResults={visibleResults} onAdd={addTrack} />
           <Playlist
             playlistName={playlistName}
             playlistTracks={playlistTracks}
